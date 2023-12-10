@@ -8,5 +8,5 @@ RUN go build hello.go
 
 CMD ["./hello"]
 
-# docker build -t my-golang-app .
+# docker build -t my-golang-app app -f app/Dockerfile
 # docker run -it --rm --name my-running-app my-golang-app
