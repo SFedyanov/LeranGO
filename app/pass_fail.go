@@ -13,13 +13,7 @@ import (
 func main() {
 	var status string
 	fmt.Print("Enter a grade:")
-	reader := bufio.NewReader(os.Stdin)
-	input, err := reader.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-	input = strings.TrimSpace(input)
-	grade, err := strconv.ParseFloat(input, 64)
+	grade, err := getFloat()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -28,6 +22,20 @@ func main() {
 	} else {
 		status = "failing"
 	}
-	fmt.Println(input)
 	fmt.Println(status)
+}
+
+func getFloat() (float64, error) {
+	reader := bufio.NewReader(os.Stdin)
+	input, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatal(err)
+	}
+	input = strings.TrimSpace(input)
+	number, err := strconv.ParseFloat(input, 64)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(input)
+	return number, nil
 }
