@@ -6,3 +6,9 @@ go run app/guess.go
 go build app/guess.go
 env GOOS=windows GOARCH=amd64 go build app/guess.go
 ```
+
+modules
+```bash
+ go mod init mod
+ go mod tidy
+ ```
